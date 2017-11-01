@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		413424431FA50B65006CD278 /* BSK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413424391FA50B65006CD278 /* BSK.framework */; };
 		413424481FA50B65006CD278 /* BSKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413424471FA50B65006CD278 /* BSKTests.swift */; };
-		413424541FA50BB8006CD278 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413424531FA50BB8006CD278 /* Manager.swift */; };
+		413424541FA50BB8006CD278 /* BSKProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413424531FA50BB8006CD278 /* BSKProvider.swift */; };
+		414214581FA8A89A00F89110 /* BSKTransactionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414214561FA8A89A00F89110 /* BSKTransactionDelegate.swift */; };
+		414214591FA8A89A00F89110 /* BSKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414214571FA8A89A00F89110 /* BSKError.swift */; };
 		4155F2351FA6809F0025ADAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155F2341FA6809F0025ADAC /* Constants.swift */; };
 		4155F23A1FA68A250025ADAC /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155F2391FA68A250025ADAC /* PaymentType.swift */; };
 		41566AEF1FA6282C00280661 /* TransportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41566AEE1FA6282C00280661 /* TransportCard.swift */; };
 		41566AF11FA6283800280661 /* PaymentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41566AF01FA6283800280661 /* PaymentCard.swift */; };
-		41566AF61FA6600C00280661 /* NetworkManagerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41566AF51FA6600C00280661 /* NetworkManagerResponse.swift */; };
-		41566AF81FA6601300280661 /* NetworkManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41566AF71FA6601300280661 /* NetworkManagerError.swift */; };
+		418490651FA9D60200FB215D /* MoyaProvider+CustomAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418490641FA9D60200FB215D /* MoyaProvider+CustomAlamofireManager.swift */; };
+		41CC97AD1FA7587900F33C1E /* BSKAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CC97AC1FA7587900F33C1E /* BSKAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,13 +36,15 @@
 		413424421FA50B65006CD278 /* BSKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		413424471FA50B65006CD278 /* BSKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKTests.swift; sourceTree = "<group>"; };
 		413424491FA50B65006CD278 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		413424531FA50BB8006CD278 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		413424531FA50BB8006CD278 /* BSKProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKProvider.swift; sourceTree = "<group>"; };
+		414214561FA8A89A00F89110 /* BSKTransactionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSKTransactionDelegate.swift; sourceTree = "<group>"; };
+		414214571FA8A89A00F89110 /* BSKError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSKError.swift; sourceTree = "<group>"; };
 		4155F2341FA6809F0025ADAC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4155F2391FA68A250025ADAC /* PaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
 		41566AEE1FA6282C00280661 /* TransportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportCard.swift; sourceTree = "<group>"; };
 		41566AF01FA6283800280661 /* PaymentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCard.swift; sourceTree = "<group>"; };
-		41566AF51FA6600C00280661 /* NetworkManagerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerResponse.swift; sourceTree = "<group>"; };
-		41566AF71FA6601300280661 /* NetworkManagerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerError.swift; sourceTree = "<group>"; };
+		418490641FA9D60200FB215D /* MoyaProvider+CustomAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+CustomAlamofireManager.swift"; sourceTree = "<group>"; };
+		41CC97AC1FA7587900F33C1E /* BSKAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +87,11 @@
 		4134243B1FA50B65006CD278 /* BSK */ = {
 			isa = PBXGroup;
 			children = (
-				4134243D1FA50B65006CD278 /* Info.plist */,
-				413424531FA50BB8006CD278 /* Manager.swift */,
-				41566AF51FA6600C00280661 /* NetworkManagerResponse.swift */,
-				41566AF71FA6601300280661 /* NetworkManagerError.swift */,
-				41566AEE1FA6282C00280661 /* TransportCard.swift */,
-				41566AF01FA6283800280661 /* PaymentCard.swift */,
-				4155F2341FA6809F0025ADAC /* Constants.swift */,
-				4155F2391FA68A250025ADAC /* PaymentType.swift */,
+				4142145A1FA8A8DA00F89110 /* Core */,
+				4142145B1FA8A8E600F89110 /* Models */,
+				4142145C1FA8A8F600F89110 /* Constants */,
+				41742C131FA8BA0900A05A0B /* Extensions */,
+				4142145D1FA8A8FC00F89110 /* Supporting Files */,
 			);
 			path = BSK;
 			sourceTree = "<group>";
@@ -102,6 +103,51 @@
 				413424491FA50B65006CD278 /* Info.plist */,
 			);
 			path = BSKTests;
+			sourceTree = "<group>";
+		};
+		4142145A1FA8A8DA00F89110 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				41CC97AC1FA7587900F33C1E /* BSKAdapter.swift */,
+				413424531FA50BB8006CD278 /* BSKProvider.swift */,
+				414214571FA8A89A00F89110 /* BSKError.swift */,
+				414214561FA8A89A00F89110 /* BSKTransactionDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4142145B1FA8A8E600F89110 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				41566AEE1FA6282C00280661 /* TransportCard.swift */,
+				41566AF01FA6283800280661 /* PaymentCard.swift */,
+				4155F2391FA68A250025ADAC /* PaymentType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4142145C1FA8A8F600F89110 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				4155F2341FA6809F0025ADAC /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		4142145D1FA8A8FC00F89110 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4134243D1FA50B65006CD278 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41742C131FA8BA0900A05A0B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				418490641FA9D60200FB215D /* MoyaProvider+CustomAlamofireManager.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,12 +260,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				413424541FA50BB8006CD278 /* Manager.swift in Sources */,
-				41566AF81FA6601300280661 /* NetworkManagerError.swift in Sources */,
+				413424541FA50BB8006CD278 /* BSKProvider.swift in Sources */,
+				414214581FA8A89A00F89110 /* BSKTransactionDelegate.swift in Sources */,
+				418490651FA9D60200FB215D /* MoyaProvider+CustomAlamofireManager.swift in Sources */,
 				41566AEF1FA6282C00280661 /* TransportCard.swift in Sources */,
 				41566AF11FA6283800280661 /* PaymentCard.swift in Sources */,
 				4155F23A1FA68A250025ADAC /* PaymentType.swift in Sources */,
-				41566AF61FA6600C00280661 /* NetworkManagerResponse.swift in Sources */,
+				414214591FA8A89A00F89110 /* BSKError.swift in Sources */,
+				41CC97AD1FA7587900F33C1E /* BSKAdapter.swift in Sources */,
 				4155F2351FA6809F0025ADAC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -347,6 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -369,7 +419,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BSK/Info.plist;
+				INFOPLIST_FILE = "BSK/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -394,7 +444,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = BSK/Info.plist;
+				INFOPLIST_FILE = "BSK/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
