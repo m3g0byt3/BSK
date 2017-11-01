@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.author        = { "m3g0byt3" => "m3g0byt3@gmail.com" }
   spec.platform      = :ios, "9.3"
   spec.source        = { :git => "https://github.com/m3g0byt3/BSK.git", :tag => "#{spec.version}" }
-  spec.source_files  = 'BSK/*.{h,m,swift}'
+  spec.source_files  = 'BSK/*/*.{h,m,swift}'
   spec.exclude_files = "Classes/Exclude"
   spec.requires_arc  = true
   spec.dependency 'Moya'
