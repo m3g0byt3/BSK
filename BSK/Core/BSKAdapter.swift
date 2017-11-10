@@ -29,7 +29,7 @@ public struct BSKAdapter {
      * - parameter amount: Amount to top up
      */
     public func topUpTransportCard(_ transportCard: TransportCard, from paymentCard: PaymentCard, amount: Decimal) {
-        guard provider.inflightRequests.count == 0 else {
+        guard provider.inflightRequests.isEmpty else {
             self.delegate?.transactionDidFailWithError(BSKError.busy)
             return
         }
