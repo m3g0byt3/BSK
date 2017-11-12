@@ -7,13 +7,12 @@ Pod::Spec.new do |spec|
   spec.license       = "MIT"
   spec.author        = { "m3g0byt3" => "m3g0byt3@gmail.com" }
   spec.platform      = :ios, "9.3"
+  spec.ios.deployment_target = "9.3"
   spec.source        = { :git => "https://github.com/m3g0byt3/BSK.git", :tag => "#{spec.version}" }
-  spec.source_files  = 'BSK/*/*.{h,m,swift}'
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = 'BSK/*/*.swift'
   spec.requires_arc  = true
   spec.dependency 'Moya'
-  
-  # Explicitly adding Alamofire to the podspec due to https://github.com/Moya/Moya/issues/681
+  # Explicitly adding Alamofire as dependency due to https://github.com/Moya/Moya/issues/681
   spec.dependency 'Alamofire'
-
+ 
 end
