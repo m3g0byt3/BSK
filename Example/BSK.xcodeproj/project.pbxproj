@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		1C7CAA989F86C17986AA5935 /* Pods_BSK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50112BA516F5438A2004D785 /* Pods_BSK_Tests.framework */; };
 		41C824A71FB8E071000B9553 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41C824A61FB8E071000B9553 /* LICENSE.txt */; };
+		41E325CA1FBA0EB900E83992 /* MockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E325C81FBA0E2300E83992 /* MockDelegate.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* BSKSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* BSKSpec.swift */; };
 		E2857D12B96C7E6F3CB8825A /* Pods_BSK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3FFBA8C1556E4FF9C5A22C /* Pods_BSK_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		00FB909D1EEC7255C5649E9E /* BSK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSK.podspec; path = ../BSK.podspec; sourceTree = "<group>"; };
 		41C824A61FB8E071000B9553 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
+		41E325C81FBA0E2300E83992 /* MockDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDelegate.swift; sourceTree = "<group>"; };
 		4D3FFBA8C1556E4FF9C5A22C /* Pods_BSK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BSK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50112BA516F5438A2004D785 /* Pods_BSK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BSK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* BSK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,7 +44,7 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* BSK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* BSKSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKSpec.swift; sourceTree = "<group>"; };
 		656CF85647CC446CBF0E8AF3 /* Pods-BSK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_Example/Pods-BSK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		784FD575752A4048386EBE19 /* Pods-BSK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_Tests/Pods-BSK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1FD54111C1D30DB552ABE00 /* Pods-BSK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_Tests/Pods-BSK_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +118,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* BSKSpec.swift */,
+				41E325C81FBA0E2300E83992 /* MockDelegate.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -220,6 +223,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 49BLJJ9CJU;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -372,7 +376,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				41E325CA1FBA0EB900E83992 /* MockDelegate.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* BSKSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 784FD575752A4048386EBE19 /* Pods-BSK_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 49BLJJ9CJU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -548,7 +554,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -560,12 +566,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A1FD54111C1D30DB552ABE00 /* Pods-BSK_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 49BLJJ9CJU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
