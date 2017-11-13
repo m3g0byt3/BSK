@@ -1,8 +1,8 @@
 # BSK
 (acronym for "contactless multi-tickets" in Russian)
 
-Simple framework for top-up russian contactless metropolitan multi-tickets "Podorozhnik" and "Sputnik".
-Using Moya & Alamofire for networking.
+Simple non-official framework for top-up russian contactless metropolitan multi-tickets "Podorozhnik" and "Sputnik".
+Using [Moya] & [Alamofire] for networking, [Quick] & [Nimble] for unit-testing.
  
 ### Features
 ***
@@ -20,7 +20,7 @@ Using following payment methods for top-up:
 
 ### Requirements
 ***
-* iOS 9.0+
+* iOS 9.3+
 * Xcode 8.3+
 * Swift 3.2+
 
@@ -30,23 +30,32 @@ Actively under development.
 
 ###  Sample Project
 ***
-TODO: add sample projects
 
 ###  Installation
 ***
-TODO: add installation guide
 
 ###  Usage
 ***
-TODO: add usage guide
 
 ###  Contributing
 ***
-TODO: add contributing guide
+1. Fork
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
+
+That's it!
 
 ###  License
 ***
 BSK is released under an MIT license. See [LICENSE] for more information.
+
+###  TODO
+***
+* Add installation guide
+* Add usage guide
+* Add sample projects
 
 ###  Author
 ***
@@ -56,5 +65,7 @@ BSK is released under an MIT license. See [LICENSE] for more information.
 [m3g0byt3]: <https://github.com/m3g0byt3>
 [Moya]: <https://github.com/Moya>
 [Alamofire]: <https://github.com/Alamofire/Alamofire>
+[Quick]: <https://github.com/Quick/Quick>
+[Nimble]: <https://github.com/Quick/Nimble>
 [LICENSE]: <https://github.com/m3g0byt3/BSK/blob/master/LICENSE.txt>
 [ispp.spbmetropoliten.ru]: <http://ispp.spbmetropoliten.ru>
