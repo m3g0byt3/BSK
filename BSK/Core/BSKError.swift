@@ -20,7 +20,7 @@ public enum BSKError: Error {
         case .wrongCardNumber:
             return "Wrong transport card number"
         case .wrongSum:
-            return "Incorrect top up amount.\r\n Minimum top up amount 1 RUB, maximum top up amount 14958 RUB"
+            return "Incorrect top up amount.\r\n Minimum top up amount 1 RUB, maximum top up amount 15000 RUB"
         case .topUpError:
             return "Unable to top-up transport card"
         case .parseError:

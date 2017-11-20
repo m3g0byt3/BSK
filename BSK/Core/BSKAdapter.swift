@@ -19,7 +19,7 @@ public struct BSKAdapter {
     /// Public init with delegate
     public init(delegate: BSKTransactionDelegate) {
         self.delegate = delegate
-        self.provider = MoyaProvider<BSKProvider>.init(manager: MoyaProvider<BSKProvider>.customAlamofireManager(), trackInflights: true)
+        self.provider = MoyaProvider<BSKProvider>(manager: MoyaProvider<BSKProvider>.customAlamofireManager(), trackInflights: true)
     }
     
     /**

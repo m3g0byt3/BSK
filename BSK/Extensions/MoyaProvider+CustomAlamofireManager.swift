@@ -14,7 +14,7 @@ public extension MoyaProvider {
      * Class method that returns customized instance of Alamofire default manager
      * - returns: Customized instance of Alamofire default manager
      */
-    public class func customAlamofireManager() -> Manager {
+    public final class func customAlamofireManager() -> Manager {
         
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 15
