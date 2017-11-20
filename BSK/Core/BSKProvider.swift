@@ -49,8 +49,29 @@ extension BSKProvider: TargetType {
     
     /// Provides stub data for use in testing.
     var sampleData: Data {
-        //TODO: add actual stub data for use in testing.
-        return "".data(using: .utf8)!
+        switch self {
+        case .initiatePayment(_, amount: let amount) where amount >= 15000:
+            return Constants.BackendError.wrongSum
+                .appending(UUID().uuidString)
+                .data(using: .utf8)!
+        case .initiatePayment(transportCard: let transportCard, amount: _) where transportCard.cardNumber.hasPrefix("00000"):
+            return Constants.BackendError.wrongCardNumber
+                .appending(UUID().uuidString)
+                .data(using: .utf8)!
+        case .initiatePayment:
+            var randomStrings = UUID().uuidString.split(separator: "-").map { String($0) }
+            let url = URL(string: Constants.mbmBaseURL)!
+                .appendingPathComponent(Constants.mbmProcessingPath)
+                .appendingPathComponent(randomStrings.removeFirst())
+                .appendingPathComponent(randomStrings.removeFirst())
+            return url.absoluteString.appending(UUID().uuidString).data(using: .utf8)!
+        case .processPayment(sessionID: let sessionID, transactionID: let transactionID):
+            let url = URL(string: Constants.mbmBaseURL)!
+                .appendingPathComponent(Constants.mbmProcessingPath)
+                .appendingPathComponent(sessionID)
+                .appendingPathComponent(transactionID)
+            return url.absoluteString.appending(UUID().uuidString).data(using: .utf8)!
+        }
     }
     
     /// The type of HTTP task to be performed.

@@ -91,8 +91,8 @@ public struct BSKAdapter {
     
     //MARK: - Private API
     
-    /// Internal Moya provider
-    let provider: MoyaProvider<BSKProvider>
+    /// Internal Moya provider, not a constant because may be replaced with mock in unit tests
+    var provider: MoyaProvider<BSKProvider>
     
     /**
      * Parse transaction response from http://ispp.spbmetropoliten.ru, returns sessionID and transactionID for transaction
