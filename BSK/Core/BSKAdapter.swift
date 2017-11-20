@@ -122,7 +122,7 @@ public struct BSKAdapter {
         let paymentURLString = responseString.split(separator: separator).first { $0.contains(Constants.mbmBaseURL) }
         
         guard let paymentURL = paymentURLString.map({ String($0) }).flatMap({ URL(string: $0) }) else {
-            throw BSKError.genericError
+            throw BSKError.parseError
         }
         
         let sessionID = paymentURL.deletingLastPathComponent().lastPathComponent
