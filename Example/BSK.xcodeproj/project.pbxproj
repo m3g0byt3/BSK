@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1C7CAA989F86C17986AA5935 /* Pods_BSK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50112BA516F5438A2004D785 /* Pods_BSK_Tests.framework */; };
+		41BAE8551FC1F2AE00971380 /* ConfirmationRequestHTTPBody.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */; };
 		41C824A71FB8E071000B9553 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41C824A61FB8E071000B9553 /* LICENSE.txt */; };
-		41E325CA1FBA0EB900E83992 /* MockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E325C81FBA0E2300E83992 /* MockDelegate.swift */; };
+		41E325CA1FBA0EB900E83992 /* BSKMockedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -31,8 +32,9 @@
 
 /* Begin PBXFileReference section */
 		00FB909D1EEC7255C5649E9E /* BSK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSK.podspec; path = ../BSK.podspec; sourceTree = "<group>"; };
+		41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ConfirmationRequestHTTPBody.txt; sourceTree = "<group>"; };
 		41C824A61FB8E071000B9553 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
-		41E325C81FBA0E2300E83992 /* MockDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDelegate.swift; sourceTree = "<group>"; };
+		41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKMockedDelegate.swift; sourceTree = "<group>"; };
 		4D3FFBA8C1556E4FF9C5A22C /* Pods_BSK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BSK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50112BA516F5438A2004D785 /* Pods_BSK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BSK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* BSK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41BAE8521FC1F12700971380 /* Stub Data */ = {
+			isa = PBXGroup;
+			children = (
+				41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */,
+			);
+			path = "Stub Data";
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACEB1AFB9204008FA782 /* BSKSpec.swift */,
-				41E325C81FBA0E2300E83992 /* MockDelegate.swift */,
+				41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */,
+				41BAE8521FC1F12700971380 /* Stub Data */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -264,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BAE8551FC1F2AE00971380 /* ConfirmationRequestHTTPBody.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41E325CA1FBA0EB900E83992 /* MockDelegate.swift in Sources */,
+				41E325CA1FBA0EB900E83992 /* BSKMockedDelegate.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* BSKSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
