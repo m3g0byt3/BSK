@@ -68,3 +68,21 @@ extension TransportCard: CustomStringConvertible {
         return "Transport card \(cardType): \(cardNumber)"
     }
 }
+
+//MARK: - Equatable protocol conformance
+extension TransportCard: Equatable {
+    
+    public static func ==(lhs: TransportCard, rhs: TransportCard) -> Bool {
+        
+        switch (lhs, rhs) {
+        case (.sputnik(let lNumber), .sputnik(let rNumber)):
+            return lNumber == rNumber
+        case (.podorozhnikShort(let lNumber), .podorozhnikShort(let rNumber)):
+            return lNumber == rNumber
+        case (.podorozhnikLong(let lNumber), .podorozhnikLong(let rNumber)):
+            return lNumber == rNumber
+        default:
+            return false
+        }
+    }
+}
