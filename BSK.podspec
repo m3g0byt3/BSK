@@ -13,7 +13,5 @@ Pod::Spec.new do |spec|
   spec.resource_bundles = { 'BSKStubData' => ['BSK/**/*.{txt,xml,json}'] }
   spec.requires_arc  = true
   spec.dependency 'Moya'
-  # Explicitly adding Alamofire as dependency due to https://github.com/Moya/Moya/issues/681
-  spec.dependency 'Alamofire'
  
 end
