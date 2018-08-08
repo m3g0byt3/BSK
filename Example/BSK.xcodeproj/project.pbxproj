@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00FB909D1EEC7255C5649E9E /* BSK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSK.podspec; path = ../BSK.podspec; sourceTree = "<group>"; };
+		00FB909D1EEC7255C5649E9E /* BSK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSK.podspec; path = ../BSK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ConfirmationRequestHTTPBody.txt; sourceTree = "<group>"; };
 		41C824A61FB8E071000B9553 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
 		41DA69BA211AE30700B06C40 /* TransportCardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportCardSpec.swift; sourceTree = "<group>"; };

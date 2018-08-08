@@ -8,10 +8,18 @@
 
 import Foundation
 
+/// Errors that may be trown by `BSKAdapter`.
 public enum BSKError: Error {
-    
-    case maintenanceMode, wrongCardNumber, wrongSum, topUpError, parseError, networkError(String), busy, genericError
-    
+
+    case maintenanceMode
+    case wrongCardNumber
+    case wrongSum
+    case topUpError
+    case parseError
+    case networkError(String)
+    case busy
+    case genericError
+
     /// Localized description of an error
     public var localizedDescription: String {
         switch self {
@@ -35,11 +43,13 @@ public enum BSKError: Error {
     }
 }
 
+// MARK: - Custom init
+
+/// Provides convenience init from `Error` type for `BSKError`
 public extension BSKError {
-    /**
-     * Convenience init from `Error` type
-     * - parameter error: Type conforming to `Error` protocol
-     */
+
+    /// Convenience init from `Error` type
+    /// - parameter error: Type conforming to `Error` protocol
     public init(_ error: Error) {
         self = .networkError(error.localizedDescription)
     }
