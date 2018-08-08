@@ -8,10 +8,10 @@
 import Foundation
 
 public protocol BSKTransactionDelegate: class {
-    
+
     func didReceiveConfirmationRequest(_ request: URLRequest)
-    
+
     func transactionDidFailWithError(_ error: BSKError)
-    
+
     func transactionDidComplete()
 }

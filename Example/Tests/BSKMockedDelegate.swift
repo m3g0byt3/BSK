@@ -10,7 +10,7 @@ import Foundation
 import BSK
 
 internal class BSKMockedDelegate: BSKTransactionDelegate {
-    
+
     // Properties used in async delegate testing
     var transactionCompleted = false
     var transactionRequest: URLRequest?
@@ -19,11 +19,11 @@ internal class BSKMockedDelegate: BSKTransactionDelegate {
     func transactionDidComplete() {
         transactionCompleted = true
     }
-    
+
     func transactionDidFailWithError(_ error: BSKError) {
         transactionError = error
     }
-    
+
     func didReceiveConfirmationRequest(_ request: URLRequest) {
         transactionRequest = request
     }
