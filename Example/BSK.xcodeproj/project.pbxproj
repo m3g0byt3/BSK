@@ -10,6 +10,9 @@
 		1C7CAA989F86C17986AA5935 /* Pods_BSK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50112BA516F5438A2004D785 /* Pods_BSK_Tests.framework */; };
 		41BAE8551FC1F2AE00971380 /* ConfirmationRequestHTTPBody.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */; };
 		41C824A71FB8E071000B9553 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41C824A61FB8E071000B9553 /* LICENSE.txt */; };
+		41DA69C5211AE61A00B06C40 /* MaintenanceModeRawResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 41DA69C0211AE61700B06C40 /* MaintenanceModeRawResponse.xml */; };
+		41DA69C6211AE61A00B06C40 /* WrongCardNumberRawResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 41DA69C1211AE61800B06C40 /* WrongCardNumberRawResponse.xml */; };
+		41DA69C7211AE61A00B06C40 /* WrongSumRawResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 41DA69BF211AE61700B06C40 /* WrongSumRawResponse.xml */; };
 		41E325CA1FBA0EB900E83992 /* BSKMockedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -34,6 +37,9 @@
 		00FB909D1EEC7255C5649E9E /* BSK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSK.podspec; path = ../BSK.podspec; sourceTree = "<group>"; };
 		41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ConfirmationRequestHTTPBody.txt; sourceTree = "<group>"; };
 		41C824A61FB8E071000B9553 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
+		41DA69BF211AE61700B06C40 /* WrongSumRawResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WrongSumRawResponse.xml; sourceTree = "<group>"; };
+		41DA69C0211AE61700B06C40 /* MaintenanceModeRawResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MaintenanceModeRawResponse.xml; sourceTree = "<group>"; };
+		41DA69C1211AE61800B06C40 /* WrongCardNumberRawResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WrongCardNumberRawResponse.xml; sourceTree = "<group>"; };
 		41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKMockedDelegate.swift; sourceTree = "<group>"; };
 		4D3FFBA8C1556E4FF9C5A22C /* Pods_BSK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BSK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50112BA516F5438A2004D785 /* Pods_BSK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BSK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +83,9 @@
 		41BAE8521FC1F12700971380 /* Stub Data */ = {
 			isa = PBXGroup;
 			children = (
+				41DA69C0211AE61700B06C40 /* MaintenanceModeRawResponse.xml */,
+				41DA69C1211AE61800B06C40 /* WrongCardNumberRawResponse.xml */,
+				41DA69BF211AE61700B06C40 /* WrongSumRawResponse.xml */,
 				41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */,
 			);
 			path = "Stub Data";
@@ -273,7 +282,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41DA69C5211AE61A00B06C40 /* MaintenanceModeRawResponse.xml in Resources */,
+				41DA69C7211AE61A00B06C40 /* WrongSumRawResponse.xml in Resources */,
 				41BAE8551FC1F2AE00971380 /* ConfirmationRequestHTTPBody.txt in Resources */,
+				41DA69C6211AE61A00B06C40 /* WrongCardNumberRawResponse.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
