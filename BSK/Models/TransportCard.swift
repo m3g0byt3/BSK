@@ -8,13 +8,16 @@
 
 import Foundation
 
+/// Transport card model
 public enum TransportCard {
-    
-    case podorozhnikShort(number: String), podorozhnikLong(number: String), sputnik(number: String)
-    
+
+    case podorozhnikShort(number: String)
+    case podorozhnikLong(number: String)
+    case sputnik(number: String)
+
     /// regex string used to remove non-numeric characters from raw card number
-    fileprivate static let regexString = "([^0-9]+)"
-    
+    private static let regexString = "([^0-9]+)"
+
     /// Transport card number
     public var cardNumber: String {
         switch self {
@@ -22,7 +25,7 @@ public enum TransportCard {
             return number
         }
     }
-    
+
     /// Transport card type
     public var cardType: Int {
         switch self {
@@ -32,14 +35,16 @@ public enum TransportCard {
     }
 }
 
-//MARK: - Custom init
+// MARK: - Custom init
+
+/// Provides convenience init with given transport card number
 public extension TransportCard {
-    
+
     /// Convenience init with given transport card number
     public init?(cardNumber number: String) {
-        
+
         let normalizedNumber = number.replacingOccurrences(of: TransportCard.regexString, with: "", options: .regularExpression)
-        
+
         switch normalizedNumber.count {
         case 11:
             self = .sputnik(number: normalizedNumber)
@@ -53,33 +58,35 @@ public extension TransportCard {
     }
 }
 
-//MARK: - CustomStringConvertible protocol conformance
+// MARK: - CustomStringConvertible protocol conformance
+
 extension TransportCard: CustomStringConvertible {
-    
+
     public var description: String {
         let cardType: String
-        
+
         switch self {
         case .sputnik: cardType = "Sputnik"
         case .podorozhnikShort: cardType = "Podorozhnik (Short number format)"
         case .podorozhnikLong: cardType = "Podorozhnik (Long number format)"
         }
-        
+
         return "Transport card \(cardType): \(cardNumber)"
     }
 }
 
-//MARK: - Equatable protocol conformance
+// MARK: - Equatable protocol conformance
+
 extension TransportCard: Equatable {
-    
+    // swiftlint:disable:next operator_whitespace
     public static func ==(lhs: TransportCard, rhs: TransportCard) -> Bool {
-        
+
         switch (lhs, rhs) {
-        case (.sputnik(let lNumber), .sputnik(let rNumber)):
+        case let (.sputnik(lNumber), .sputnik(rNumber)):
             return lNumber == rNumber
-        case (.podorozhnikShort(let lNumber), .podorozhnikShort(let rNumber)):
+        case let (.podorozhnikShort(lNumber), .podorozhnikShort(rNumber)):
             return lNumber == rNumber
-        case (.podorozhnikLong(let lNumber), .podorozhnikLong(let rNumber)):
+        case let (.podorozhnikLong(lNumber), .podorozhnikLong(rNumber)):
             return lNumber == rNumber
         default:
             return false

@@ -9,16 +9,17 @@
 import Foundation
 
 public enum PaymentType: Int {
-    
+
     case yandexMoney = 3
     case phoneBalance = 4
     case creditCard = 6
     case qiwiWallet = 7
 }
 
-//MARK: - CustomStringConvertible protocol conformance
+// MARK: - CustomStringConvertible protocol conformance
+
 extension PaymentType: CustomStringConvertible {
-    
+
     public var description: String {
         switch self {
         case .yandexMoney:

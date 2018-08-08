@@ -9,22 +9,21 @@
 import Foundation
 import Moya
 
+/// Provides custom AlamofireManager
 public extension MoyaProvider {
-    /**
-     * Class method that returns customized instance of Alamofire default manager
-     * - returns: Customized instance of Alamofire default manager
-     */
+
+    /// Class method that returns customized instance of Alamofire default manager
+    /// - returns: Customized instance of Alamofire default manager
     public final class func customAlamofireManager() -> Manager {
-        
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 15
         configuration.timeoutIntervalForResource = 15
         configuration.httpAdditionalHeaders = Manager.defaultHTTPHeaders
         configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-        
+
         let manager = Manager(configuration: configuration)
         manager.startRequestsImmediately = false
-        
+
         return manager
     }
 }
