@@ -21,8 +21,8 @@ Using following payment methods for top-up:
 ### Requirements
 ***
 * iOS 9.3+
-* Xcode 8.3+
-* Swift 3.2+
+* Xcode 9.4+
+* Swift 4.0+
 
 ###  Project Status
 ***
@@ -31,11 +31,17 @@ Actively under development.
 ###  Sample Project
 ***
 
+TBD
+
 ###  Installation
 ***
 
+TBD
+
 ###  Usage
 ***
+
+TBD
 
 ###  Contributing
 ***

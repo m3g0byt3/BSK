@@ -16,6 +16,8 @@ enum Constants {
     static let mbmBaseURL = "https://cps.mobi-money.ru"
     /// Path for `httр://ispp.spbmetropoliten.ru`
     static let isppPath = ""
+    /// Path component when payment failed
+    static let isppFailPathComponent = "fail"
     /// Payment path for `httрs://mobi-money.ru`
     static let mbmProcessingPath = "/pay/start/"
      /// Confirmation path for `httрs://mobi-money.ru`
@@ -30,11 +32,11 @@ enum Constants {
 
     /// Represents parameters of an initial payment HTTP request to `httр://ispp.spbmetropoliten.ru`
     enum RequestParameters {
-        static let numberParameterName = "card_id"
-        static let cardTypeParameterName = "cardtype"
-        static let paymentTypeParameterName = "paytype"
-        static let sumParameterName = "sum"
-        static let phoneParameterName = "phone"
+        static let number = "card_id"
+        static let cardType = "cardtype"
+        static let paymentType = "paytype"
+        static let sum = "sum"
+        static let phone = "phone"
     }
 
     /// Represents various errors on the back-end

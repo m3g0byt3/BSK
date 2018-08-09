@@ -11,8 +11,8 @@ import Moya
 
 enum BSKProvider {
 
-    case initiatePayment(transportCard: TransportCard, amount: Decimal)
-    case processPayment(sessionID: String, transactionID: String)
+    case initiatePayment(transportCard: BSKTransportCard, amount: Int)
+    case processPayment(paymentRequest: BSKResponseISPP)
 }
 
 extension BSKProvider: TargetType {
@@ -33,8 +33,8 @@ extension BSKProvider: TargetType {
         switch self {
         case .initiatePayment:
             return Constants.isppPath
-        case let .processPayment(sessionID, transactionID):
-            return Constants.mbmProcessingPath + "\(sessionID)/\(transactionID)/"
+        case .processPayment(let request):
+            return Constants.mbmProcessingPath + "\(request.sessionID)/\(request.transactionID)/"
         }
     }
 
@@ -70,11 +70,11 @@ extension BSKProvider: TargetType {
                 .appendingPathComponent(randomStrings.removeFirst())
             return url.absoluteString.appending(UUID().uuidString).data(using: .utf8)!
 
-        case let .processPayment(sessionID, transactionID):
+        case .processPayment(let request):
             let url = URL(string: Constants.mbmBaseURL)!
                 .appendingPathComponent(Constants.mbmProcessingPath)
-                .appendingPathComponent(sessionID)
-                .appendingPathComponent(transactionID)
+                .appendingPathComponent(request.sessionID)
+                .appendingPathComponent(request.transactionID)
             return url.absoluteString.appending(UUID().uuidString).data(using: .utf8)!
         }
     }
@@ -83,10 +83,10 @@ extension BSKProvider: TargetType {
     var task: Task {
         switch self {
         case let .initiatePayment(transportCard, amount):
-            let parameters = [Constants.RequestParameters.numberParameterName: transportCard.cardNumber,
-                              Constants.RequestParameters.cardTypeParameterName: String(transportCard.cardType),
-                              Constants.RequestParameters.sumParameterName: amount.description,
-                              Constants.RequestParameters.paymentTypeParameterName: String(PaymentType.creditCard.rawValue)]
+            let parameters = [Constants.RequestParameters.number: transportCard.cardNumber,
+                              Constants.RequestParameters.cardType: String(transportCard.cardType),
+                              Constants.RequestParameters.sum: amount.description,
+                              Constants.RequestParameters.paymentType: String(BSKPaymentType.creditCard(nil).rawValue)]
 
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
 
