@@ -1,5 +1,5 @@
 //
-//  MoyaProvider+CustomAlamofireManager.swift
+//  MoyaProvider+Extensions.swift
 //  BSK
 //
 //  Created by m3g0byt3 on 01/11/2017.

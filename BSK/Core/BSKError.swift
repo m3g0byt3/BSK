@@ -14,11 +14,11 @@ public enum BSKError: Error {
     case maintenanceMode
     case wrongCardNumber
     case wrongSum
-    case topUpError
-    case parseError
-    case networkError(String)
+    case paymentMethodNotSupported
+    case unableToMapResponse
+    case unableToTopUp
+    case underlying(Error)
     case busy
-    case genericError
 
     /// Localized description of an error
     public var localizedDescription: String {
@@ -28,29 +28,17 @@ public enum BSKError: Error {
         case .wrongCardNumber:
             return "Wrong transport card number"
         case .wrongSum:
-            return "Incorrect top up amount.\r\n Minimum top up amount 1 RUB, maximum top up amount 15000 RUB"
-        case .topUpError:
+            return "Incorrect top-up amount.\r\n Minimum top-up amount 1 RUB, maximum top-up amount 14500 RUB"
+        case .unableToTopUp:
             return "Unable to top-up transport card"
-        case .parseError:
-            return "Unable to parse response from back-end"
-        case .networkError(let description):
-            return description
+        case .underlying(let error):
+            return error.localizedDescription
         case .busy:
             return "Another request in progress"
-        case .genericError:
-            return "Unknown error"
+        case .paymentMethodNotSupported:
+            return "Currently supported payments methods: `Credit card`"
+        case .unableToMapResponse:
+            return "Unable to map response to object"
         }
-    }
-}
-
-// MARK: - Custom init
-
-/// Provides convenience init from `Error` type for `BSKError`
-public extension BSKError {
-
-    /// Convenience init from `Error` type
-    /// - parameter error: Type conforming to `Error` protocol
-    public init(_ error: Error) {
-        self = .networkError(error.localizedDescription)
     }
 }
