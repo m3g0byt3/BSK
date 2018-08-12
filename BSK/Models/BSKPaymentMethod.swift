@@ -15,12 +15,10 @@ public enum BSKPaymentMethod {
 
         // MARK: - Constants
 
+        // swiftlint:disable:next number_separator
+        private static let yearBoundary = (min: 1000, max: 9999)
         private static let defaultCVV = "000"
         private static let cardNumberLength = 16
-        private static let formatter: DateFormatter = { this in
-            this.dateFormat = "YYYY"
-            return this
-        }(DateFormatter())
 
         // MARK: - Public properties
 
@@ -48,29 +46,14 @@ public enum BSKPaymentMethod {
             guard
                 cardNumber.count == CreditCard.cardNumberLength,
                 validationComponents.isValidDate,
-                let normalizedExpiryYear = CreditCard.normalize(expiryYear)
+                expiryYear >= CreditCard.yearBoundary.min,
+                expiryYear <= CreditCard.yearBoundary.max
             else { return nil }
 
             self.cardNumber = cardNumber
             self.expiryMonth = expiryMonth
-            self.expiryYear = normalizedExpiryYear
+            self.expiryYear = expiryYear
             self.cvv = cvv ?? CreditCard.defaultCVV
-        }
-
-        // MARK: - Private API
-
-        private static func normalize(_ rawYearNumber: UInt) -> UInt? {
-            let currentDate = Date()
-            let currentYearString = CreditCard.formatter.string(from: currentDate)
-            let currentYearLength = currentYearString.count
-            let rawYearString = String(rawYearNumber)
-            let rawYearLength = rawYearString.count
-            let offset = currentYearLength - rawYearLength
-            let startIndex = currentYearString.startIndex
-            let endIndex = currentYearString.index(startIndex, offsetBy: offset)
-            let normalizedYearString = currentYearString[..<endIndex] + rawYearString
-
-            return UInt(normalizedYearString)
         }
     }
 
