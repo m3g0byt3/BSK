@@ -15,7 +15,7 @@ public enum BSKPaymentMethod {
 
         // MARK: - Constants
 
-        private static let defaultCVV = "00"
+        private static let defaultCVV = "000"
         private static let cardNumberLength = 16
         private static let formatter: DateFormatter = { this in
             this.dateFormat = "YYYY"
