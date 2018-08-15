@@ -65,7 +65,7 @@ public final class BSKAdapter {
             return
         }
 
-        // Initiate request to `httр://ispp.spbmetropoliten.ru`
+        // Initiate request to `httрs://ispp.spbmetropoliten.ru`
         provider.request(.initiatePayment(transportCard: transportCard, amount: amount)) { [weak self] result in
             switch result {
 

@@ -10,11 +10,13 @@ import Foundation
 
 /// Various constant parameters for network requests, etc
 enum Constants {
-    /// Base URL for `httр://ispp.spbmetropoliten.ru`
-    static let isppBaseURL = "http://ispp.spbmetropoliten.ru"
+    /// Hostname for `httрs://ispp.spbmetropoliten.ru`
+    static let isppHostname = "ispp.spbmetropoliten.ru"
+    /// Base URL for `httрs://ispp.spbmetropoliten.ru`
+    static let isppBaseURL = "https://" + Constants.isppHostname
     /// Base URL for `httрs://mobi-money.ru`
     static let mbmBaseURL = "https://cps.mobi-money.ru"
-    /// Path for `httр://ispp.spbmetropoliten.ru`
+    /// Path for `httрs://ispp.spbmetropoliten.ru`
     static let isppPath = ""
     /// Path component when payment failed
     static let isppFailPathComponent = "fail"
@@ -30,7 +32,7 @@ enum Constants {
                                         "AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 " +
                                         "Mobile/14G60 Safari/602.1"]
 
-    /// Represents parameters of an initial payment HTTP request to `httр://ispp.spbmetropoliten.ru`
+    /// Represents parameters of an initial payment request to `httрs://ispp.spbmetropoliten.ru`
     enum RequestParameters {
         static let number = "card_id"
         static let cardType = "cardtype"
