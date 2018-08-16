@@ -24,7 +24,7 @@ class BSKWebViewHandler: NSObject, BSKWebViewHandlerProtocol, _BSKWebViewHandler
         guard let url = request.url else { return }
 
         // Ignore irrelevant URL
-        guard url.absoluteString.contains(Constants.isppPath) else { return }
+        guard url.absoluteString.contains(Constants.isppHostname) else { return }
 
         // Check if payment was successful or not
         if url.pathComponents.contains(Constants.isppFailPathComponent) {
