@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name          = "BSK"
-  spec.version       = "0.4.0"
+  spec.version       = "0.4.1"
   spec.summary       = "Simple framework for making payments on `ispp.spbmetropoliten.ru`."
   spec.homepage      = "https://github.com/m3g0byt3/BSK"
   spec.license       = "MIT"
