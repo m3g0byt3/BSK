@@ -32,9 +32,11 @@ public final class BSKAdapter {
     // MARK: - Initialization
 
     /// Public init with delegate
-    public init(delegate: BSKTransactionDelegate? = nil) {
+    public init(delegate: BSKTransactionDelegate? = nil, providerPlugins: [PluginType] = []) {
         self.delegate = delegate
-        self.provider = MoyaProvider<BSKProvider>(manager: MoyaProvider<BSKProvider>.customAlamofireManager(), trackInflights: true)
+        self.provider = MoyaProvider<BSKProvider>(manager: MoyaProvider<BSKProvider>.customAlamofireManager(),
+                                                  plugins: providerPlugins,
+                                                  trackInflights: true)
         self.handler = BSKWebViewHandler()
         self.handler.paymentCompletedSuccessfully = { [weak self] status in
             if status {
