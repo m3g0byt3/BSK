@@ -33,6 +33,7 @@ extension BSKError: CustomStringConvertible {
         case .unableToMapResponse: return "Unable to receive server's response."
         case .busy: return "Another payment request in progress."
         case .underlying(let error as LocalizedError): return error.errorDescription ?? "Unknown underlying errror."
+        case .underlying(let error as CustomNSError): return "Unknown underlying errror: \(error.errorCode)."
         case .underlying: return "Unknown underlying error."
         }
     }

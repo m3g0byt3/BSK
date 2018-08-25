@@ -15,6 +15,12 @@ class BSKWebViewHandler: NSObject, BSKWebViewHandlerProtocol, _BSKWebViewHandler
     var paymentCompletedSuccessfully: CompletionCallback?
     var handler: BSKWebViewHandlerProtocol { return self }
 
+    // MARK: - Initialization
+
+    deinit {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
     // MARK: - Private API
 
     /// Process web URLs loaded by the `UIWebView`/`SFSafariViewController` instance.
@@ -47,6 +53,18 @@ extension BSKWebViewHandler {
 
         return true
     }
+
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
 }
 
 // MARK: - UIWebViewDelegate protocol conformance
@@ -60,5 +78,21 @@ extension BSKWebViewHandler {
         handleRequest(navigationAction.request)
 
         decisionHandler(.allow)
+    }
+
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
