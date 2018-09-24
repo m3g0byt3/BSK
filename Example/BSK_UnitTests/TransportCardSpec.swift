@@ -18,7 +18,11 @@ final class TransportCardSpec: QuickSpec {
 
         describe("TransportCard") {
 
+            // MARK: - Properties
+
             var transportCard: BSKTransportCard!
+
+            // MARK: - Setup/teardown
 
             afterEach {
                 transportCard = nil
@@ -26,21 +30,27 @@ final class TransportCardSpec: QuickSpec {
 
             context("initialization") {
 
+                // MARK: - Properties
+
                 var testCard: BSKTransportCard!
                 var cardNumber: String!
                 let nonNumericRegex = "[^0-9]+"
+
+                // MARK: - Setup/teardown
 
                 afterEach {
                     testCard = nil
                     cardNumber = nil
                 }
 
+                // MARK: - Tests
+
                 it("from 11-digit number should return Sputnik transport card") {
                     cardNumber = [String](repeating: "1", count: 11).joined()
                     testCard = BSKTransportCard.sputnik(number: cardNumber)
                     transportCard = BSKTransportCard(cardNumber: cardNumber)
 
-                    expect(transportCard).to(equal(testCard))
+                    expect(transportCard) == testCard
                 }
 
                 it("from 19-digit number should return Podorozhnik Short transport card") {
@@ -48,7 +58,7 @@ final class TransportCardSpec: QuickSpec {
                     testCard = BSKTransportCard.podorozhnikShort(number: cardNumber)
                     transportCard = BSKTransportCard(cardNumber: cardNumber)
 
-                    expect(transportCard).to(equal(testCard))
+                    expect(transportCard) == testCard
                 }
 
                 it("from 26-digit number should return Podorozhnik Long transport card") {
@@ -56,7 +66,7 @@ final class TransportCardSpec: QuickSpec {
                     testCard = BSKTransportCard.podorozhnikLong(number: cardNumber)
                     transportCard = BSKTransportCard(cardNumber: cardNumber)
 
-                    expect(transportCard).to(equal(testCard))
+                    expect(transportCard) == testCard
                 }
 
                 it("should remove non-numeric characters symbols from card number") {
@@ -72,19 +82,19 @@ final class TransportCardSpec: QuickSpec {
                 it("must be equal 1 for Podorozhnik Short transport card") {
                     transportCard = BSKTransportCard.podorozhnikShort(number: "1")
 
-                    expect(transportCard.cardType).to(equal(1))
+                    expect(transportCard.cardType) == 1
                 }
 
                 it("must be equal 1 for Podorozhnik Long transport card") {
                     transportCard = BSKTransportCard.podorozhnikLong(number: "1")
 
-                    expect(transportCard.cardType).to(equal(1))
+                    expect(transportCard.cardType) == 1
                 }
 
                 it("must be equal 2 for Sputnik transport card") {
                     transportCard = BSKTransportCard.sputnik(number: "1")
 
-                    expect(transportCard.cardType).to(equal(2))
+                    expect(transportCard.cardType) == 2
                 }
             }
         }
