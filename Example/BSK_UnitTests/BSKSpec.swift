@@ -15,7 +15,6 @@ import Result
 
 // TODO: Update spec
 
-/*
 class BSKSpec: QuickSpec {
 
     override func spec() {
@@ -24,8 +23,9 @@ class BSKSpec: QuickSpec {
 
         var mockDelegate: BSKMockedDelegate!
         var adapter: BSKAdapter!
-        var paymentCard: PaymentCard!
-        var transportCard: TransportCard!
+        var paymentCard: BSKPaymentMethod.CreditCard!
+        var transportCard: BSKTransportCard!
+        var paymentType: BSKPaymentType!
         var confirmationRequest: URLRequest!
         var processingRequest: URLRequest!
         let paymentIdentifier = UUID().uuidString
@@ -36,9 +36,10 @@ class BSKSpec: QuickSpec {
         let beforeClosure: BeforeExampleClosure = {
             mockDelegate = BSKMockedDelegate()
             adapter = BSKAdapter(delegate: mockDelegate!)
-            paymentCard = PaymentCard(cardNumber: "1234 1234 1234 1234", cvv: "666", expiryMonth: 20, expiryYear: 20)
-            transportCard = TransportCard(cardNumber: "12345678901")
-            confirmationRequest = adapter.confirmationRequestForTransactionWith(id: paymentIdentifier, from: paymentCard)
+            paymentCard = BSKPaymentMethod.CreditCard(cardNumber: "12345678901", expiryMonth: 20, expiryYear: 20, cvv: "666")
+            transportCard = BSKTransportCard(cardNumber: "12345678901")
+            paymentType = .creditCard(paymentCard)
+//            confirmationRequest = adapter.confirmationRequestForTransactionWith(id: paymentIdentifier, from: paymentCard)
             // Setup mocked Moya provider with 1 second delayed stub instead default
             adapter.provider = MoyaProvider<BSKProvider>(stubClosure: MoyaProvider.delayedStub(1),
                                                          manager: MoyaProvider<BSKProvider>.customAlamofireManager(),
@@ -50,6 +51,7 @@ class BSKSpec: QuickSpec {
             adapter = nil
             paymentCard = nil
             transportCard = nil
+            paymentType = nil
             confirmationRequest = nil
             processingRequest = nil
         }
@@ -71,9 +73,9 @@ class BSKSpec: QuickSpec {
 
                 it("should not allow more than one concurrent payment request") {
                     // initiate first request
-                    adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 1)
+                    adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)
                     // initiate second request
-                    adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 1)
+                    adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)
                     expect(mockDelegate.transactionError).toEventually(matchError(BSKError.busy), timeout: 5)
                 }
 
@@ -82,7 +84,7 @@ class BSKSpec: QuickSpec {
                     it("on ISPP backend") {
                         // Setup mocked Moya provider that will always fail with 404 error
                         let networkError = NSError(domain: "com.m3g0byt3.bsk", code: 404)
-                        let expectedError = BSKError(networkError)
+                        let expectedError = BSKError.underlying(networkError)
                         let endpointClosure: MoyaProvider<BSKProvider>.EndpointClosure = { target in
                             return Endpoint(url: URL(target: target).absoluteString,
                                             sampleResponseClosure: { .networkError(networkError) },
@@ -96,14 +98,14 @@ class BSKSpec: QuickSpec {
                                                                      manager: MoyaProvider<BSKProvider>.customAlamofireManager() ,
                                                                      trackInflights: true)
 
-                        adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 1)
+                        adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)
                         expect(mockDelegate.transactionError).toEventually(matchError(expectedError), timeout: 5)
                     }
 
                     it("on MBM backend") {
                         // Setup mocked Moya provider that will fail on `processPayment` target with 404 error
                         let networkError = NSError(domain: "com.m3g0byt3.bsk", code: 404)
-                        let expectedError = BSKError(networkError)
+                        let expectedError = BSKError.underlying(networkError)
                         let endpointClosure: MoyaProvider<BSKProvider>.EndpointClosure = { target in
                             switch target {
                             case .initiatePayment:
@@ -122,13 +124,13 @@ class BSKSpec: QuickSpec {
                                                                      manager: MoyaProvider<BSKProvider>.customAlamofireManager() ,
                                                                      trackInflights: true)
 
-                        adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 1)
+                        adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)
                         expect(mockDelegate.transactionError).toEventually(matchError(expectedError), timeout: 5)
                     }
                 }
 
                 it("should provide confirmation request to the delegate") {
-                    adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 1)
+                    adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)
                     expect(mockDelegate.transactionRequest).toEventuallyNot(beNil(), timeout: 5)
                 }
 
@@ -153,18 +155,18 @@ class BSKSpec: QuickSpec {
                                                                  manager: MoyaProvider<BSKProvider>.customAlamofireManager(),
                                                                  trackInflights: true)
 
-                    adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 1)
+                    adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)
                     expect(mockDelegate.transactionError).toEventually(matchError(BSKError.maintenanceMode), timeout: 5)
                 }
 
                 it("should notify delegate about incorrect sum") {
-                    adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 99_999)
+                    adapter.topUpTransportCard(transportCard, from: paymentType, amount: 99_999)
                     expect(mockDelegate.transactionError).toEventually(matchError(BSKError.wrongSum), timeout: 5)
                 }
 
                 it("should notify delegate about incorrect card number") {
-                    transportCard = TransportCard(cardNumber: "00000000000")!
-                    adapter.topUpTransportCard(transportCard, from: paymentCard, amount: 1)
+                    transportCard = BSKTransportCard(cardNumber: "00000000000")!
+                    adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)
                     expect(mockDelegate.transactionError).toEventually(matchError(BSKError.wrongCardNumber), timeout: 5)
                 }
 
@@ -180,9 +182,10 @@ class BSKSpec: QuickSpec {
                 }
 
                 it("should send request and receive response from MBM backend") {
+                    let data = confirmationURLString.data(using: .utf8)!
+                    let paymentRequest = try! BSKResponseISPP(data)
                     waitUntil(timeout: 5) { done in
-                        adapter.provider.request(.processPayment(sessionID: paymentIdentifier,
-                                                                 transactionID: paymentIdentifier)) { response in
+                        adapter.provider.request(.processPayment(paymentRequest: paymentRequest)) { response in
                             if case .success(let data) = response {
                                 expect(data.data).toNot(beNil())
                             }
@@ -194,32 +197,33 @@ class BSKSpec: QuickSpec {
 
             // MARK: - Payment response parsing
 
-            describe("payment response parsing") {
+            describe("payment response mapping") {
 
                 beforeEach { beforeClosure() }
                 afterEach { afterClosure() }
 
+                it("should error on wrong response") {
+                    let response = Moya.Response(statusCode: 200,
+                                                 data: Data())
+                    expect { try BSKResponseISPP(response.data) }.to(throwError(BSKError.unableToMapResponse))
+                }
+
                 it("should detect maintenance mode") {
                     let response = Moya.Response(statusCode: 200,
                                                  data: Constants.BackendError.maintenanceMode.data(using: .utf8)!)
-                    expect { try adapter.parseResponse(response) }.to(throwError(BSKError.maintenanceMode))
+                    expect { try BSKResponseISPP(response.data) }.to(throwError(BSKError.maintenanceMode))
                 }
 
                 it("should detect wrong sum") {
                     let response = Moya.Response(statusCode: 200,
                                                  data: Constants.BackendError.wrongSum.data(using: .utf8)!)
-                    expect { try adapter.parseResponse(response) }.to(throwError(BSKError.wrongSum))
+                    expect { try BSKResponseISPP(response.data) }.to(throwError(BSKError.wrongSum))
                 }
 
                 it("should detect wrong card number") {
                     let response = Moya.Response(statusCode: 200,
                                                  data: Constants.BackendError.wrongCardNumber.data(using: .utf8)!)
-                    expect { try adapter.parseResponse(response) }.to(throwError(BSKError.wrongCardNumber))
-                }
-
-                it("should detect incorrect response") {
-                    let response = Moya.Response(statusCode: 200, data: Data())
-                    expect { try adapter.parseResponse(response) }.to(throwError(BSKError.parseError))
+                    expect { try BSKResponseISPP(response.data) }.to(throwError(BSKError.wrongCardNumber))
                 }
 
                 it("should return session and transaction IDs") {
@@ -229,10 +233,10 @@ class BSKSpec: QuickSpec {
                         .appendingPathComponent(sessionID)
                         .appendingPathComponent(transactionID)
                     let response = Moya.Response(statusCode: 200, data: url.absoluteString.data(using: .utf8)!)
-                    let parsedIDs = try! adapter.parseResponse(response)
+                    let mappedResponse = try! BSKResponseISPP(response.data)
 
-                    expect(parsedIDs.sessionID) == sessionID
-                    expect(parsedIDs.transactionID) == transactionID
+                    expect(mappedResponse.sessionID) == sessionID
+                    expect(mappedResponse.transactionID) == transactionID
                 }
             }
 
@@ -269,7 +273,7 @@ class BSKSpec: QuickSpec {
             }
 
             // MARK: - Delegate's requests processing
-
+/*
             describe("process delegate's requests") {
 
                 beforeEach { beforeClosure() }
@@ -279,7 +283,7 @@ class BSKSpec: QuickSpec {
                     let url = URL(string: "about:blank")
                     processingRequest = URLRequest(url: url!)
 
-                    adapter.processConfirmationRequest(processingRequest)
+                    adapter.webViewHandler
 
                     expect(mockDelegate.transactionCompleted).toEventually(beFalse())
                     expect(mockDelegate.transactionError).toEventually(beNil())
@@ -302,7 +306,7 @@ class BSKSpec: QuickSpec {
                     expect(mockDelegate.transactionCompleted).toEventually(beTrue(), timeout: 5)
                 }
             }
+ */
         }
     }
 }
-*/
