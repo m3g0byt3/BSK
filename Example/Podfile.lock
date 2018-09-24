@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
-  - BSK (0.1):
+  - BSK (0.2.2):
     - Moya
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
@@ -13,8 +13,8 @@ PODS:
 
 DEPENDENCIES:
   - BSK (from `../`)
-  - Nimble (~> 7.0)
-  - Quick (~> 1.2)
+  - Nimble
+  - Quick
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
