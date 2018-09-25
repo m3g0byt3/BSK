@@ -6,7 +6,8 @@
 //  Copyright (c) 2017 m3g0byt3. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import BSK
 
-class ViewController: UIViewController {}
+final class ViewController: UIViewController {}
