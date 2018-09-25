@@ -86,12 +86,12 @@
 		41E3A9BF21593B1F0002BA05 /* BSK_UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				41E3A9C221593B1F0002BA05 /* Info.plist */,
 				41310011215A5C0800F0F6F7 /* BSKAdapterSpec.swift */,
 				41DA69BA211AE30700B06C40 /* BSKTransportCardSpec.swift */,
 				41773D2021392A0B00784B0C /* BSKPaymentMethodSpec.swift */,
-				41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */,
-				41E3A9C221593B1F0002BA05 /* Info.plist */,
 				41F4345B215A3D9C00108B3C /* BSKPaymentTypeSpec.swift */,
+				41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */,
 				41F4345D215A4E2000108B3C /* String+Extensions.swift */,
 			);
 			path = BSK_UnitTests;
@@ -181,6 +181,7 @@
 			buildConfigurationList = 41E3A9C721593B1F0002BA05 /* Build configuration list for PBXNativeTarget "BSK_UnitTests" */;
 			buildPhases = (
 				BE06518AE47CED46D497C81B /* [CP] Check Pods Manifest.lock */,
+				41F4345A21597A7D00108B3C /* Run SwiftLint for debug builds */,
 				41E3A9BA21593B1F0002BA05 /* Sources */,
 				41E3A9BB21593B1F0002BA05 /* Frameworks */,
 				41E3A9BC21593B1F0002BA05 /* Resources */,
