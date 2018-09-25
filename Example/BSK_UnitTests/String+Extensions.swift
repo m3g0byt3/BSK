@@ -10,11 +10,11 @@ import Foundation
 
 extension String {
 
-    static func randomNumberStringWithLength(within range: Range<Int>) -> String {
+    init(randomWithLengthWithin range: Range<Int>) {
         let lowerBound = UInt32(range.lowerBound)
         let maxUpperBound = UInt32(range.upperBound)
         let randomUpperBound = arc4random_uniform(maxUpperBound - lowerBound) + lowerBound
-        return [() -> String](repeating: { "\(arc4random_uniform(10))" }, count: Int(randomUpperBound))
+        self = [() -> String](repeating: { "\(arc4random_uniform(10))" }, count: Int(randomUpperBound))
             .map { $0() }
             .joined()
     }
