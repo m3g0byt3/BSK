@@ -9,7 +9,7 @@
 import Foundation
 import BSK
 
-internal class BSKMockedDelegate: BSKTransactionDelegate {
+final class BSKMockedDelegate: BSKTransactionDelegate {
 
     // Properties used in async delegate testing
     var transactionCompleted = false

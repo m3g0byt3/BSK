@@ -5,6 +5,7 @@
 //  Created by m3g0byt3 on 25/09/2018.
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
+// swiftlint:disable force_unwrapping function_body_length implicitly_unwrapped_optional
 
 import Foundation
 import Moya
@@ -16,21 +17,21 @@ final class BSKAdapterSpec: QuickSpec {
 
     override func spec() {
 
+        // MARK: - Properties
+
+        var mockedDelegate: BSKMockedDelegate!
+        var adapter: BSKAdapter!
+        // Default mocked provider
+        let provider = MoyaProvider<BSKProvider>(stubClosure: MoyaProvider.delayedStub(1),
+                                                 manager: MoyaProvider<BSKProvider>.customAlamofireManager(),
+                                                 trackInflights: true)
+        let transportCard = BSKTransportCard(cardNumber: String(randomWithLengthWithin: 11..<12))!
+        let paymentCard = BSKPaymentMethod.CreditCard(cardNumber: String(randomWithLengthWithin: 16..<17),
+                                                      expiryMonth: 12,
+                                                      expiryYear: 99)!
+        let paymentType = BSKPaymentType.creditCard(paymentCard)
+
         describe("BSKAdapter") {
-
-            // MARK: - Properties
-
-            var mockedDelegate: BSKMockedDelegate!
-            var adapter: BSKAdapter!
-            // Default mocked provider
-            let provider = MoyaProvider<BSKProvider>(stubClosure: MoyaProvider.delayedStub(1),
-                                                     manager: MoyaProvider<BSKProvider>.customAlamofireManager(),
-                                                     trackInflights: true)
-            let transportCard = BSKTransportCard(cardNumber: String.randomNumberStringWithLength(within: 11..<12))!
-            let paymentCard = BSKPaymentMethod.CreditCard(cardNumber: String.randomNumberStringWithLength(within: 16..<17),
-                                                          expiryMonth: 12,
-                                                          expiryYear: 99)!
-            let paymentType = BSKPaymentType.creditCard(paymentCard)
 
             // MARK: - Setup/Teardown
 
@@ -102,7 +103,6 @@ final class BSKAdapterSpec: QuickSpec {
 
                     expect(mockedDelegate.transactionError).toEventuallyNot(beNil())
                 }
-
 
                 it("should provide confirmation request to the delegate") {
                     adapter.topUpTransportCard(transportCard, from: paymentType, amount: 1)

@@ -5,6 +5,7 @@
 //  Created by m3g0byt3 on 31/08/2018.
 //  Copyright © 2018 CocoaPods. All rights reserved.
 //
+// swiftlint:disable function_body_length implicitly_unwrapped_optional number_separator
 
 import Foundation
 import Quick
@@ -15,19 +16,19 @@ final class BSKPaymentMethodSpec: QuickSpec {
 
     override func spec() {
 
+        // MARK: - Properties
+
+        var creditCardPaymentMethod: BSKPaymentMethod.CreditCard!
+        let cardNumberString = String(randomWithLengthWithin: 16..<17)
+        let cardNonDefaultCVV = String(randomWithLengthWithin: 3..<4)
+        let cardDefaultCVV = "000"
+        let cardExpiryMonthTwoDigit: UInt = 01
+        let cardExpiryYearTwoDigit: UInt = 99
+        let cardExpiryYearFourDigit: UInt = 2099
+
         describe("PaymentMethod") {
 
             context("CreditCard") {
-
-                // MARK: - Properties
-
-                var creditCardPaymentMethod: BSKPaymentMethod.CreditCard!
-                let cardNumberString = String.randomNumberStringWithLength(within: 16..<17)
-                let cardNonDefaultCVV = String.randomNumberStringWithLength(within: 3..<4)
-                let cardDefaultCVV = "000"
-                let cardExpiryMonthTwoDigit: UInt = 01
-                let cardExpiryYearTwoDigit: UInt = 99
-                let cardExpiryYearFourDigit: UInt = 2099
 
                 // MARK: - Setup/teardown
 
@@ -38,7 +39,7 @@ final class BSKPaymentMethodSpec: QuickSpec {
                 // MARK: - Tests
 
                 it("should fail initialization when card number is too short") {
-                    let number = String.randomNumberStringWithLength(within: 0..<cardNumberString.count)
+                    let number = String(randomWithLengthWithin: 0..<cardNumberString.count)
                     creditCardPaymentMethod = BSKPaymentMethod.CreditCard(cardNumber: number,
                                                                           expiryMonth: cardExpiryMonthTwoDigit,
                                                                           expiryYear: cardExpiryYearTwoDigit)
@@ -47,7 +48,7 @@ final class BSKPaymentMethodSpec: QuickSpec {
                 }
 
                 it("should fail initialization when card number is too long") {
-                    let number = String.randomNumberStringWithLength(within: cardNumberString.count + 1..<cardNumberString.count * 2)
+                    let number = String(randomWithLengthWithin: cardNumberString.count + 1..<cardNumberString.count * 2)
                     creditCardPaymentMethod = BSKPaymentMethod.CreditCard(cardNumber: number,
                                                                           expiryMonth: cardExpiryMonthTwoDigit,
                                                                           expiryYear: cardExpiryYearTwoDigit)
