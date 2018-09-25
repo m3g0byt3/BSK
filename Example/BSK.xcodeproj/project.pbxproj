@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		238100F8926339335DEE97CF /* Pods_BSK_UnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B818FBA768F7C8F24CD348 /* Pods_BSK_UnitTests.framework */; };
+		41310012215A5C0800F0F6F7 /* BSKAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41310011215A5C0800F0F6F7 /* BSKAdapterSpec.swift */; };
 		41C824A71FB8E071000B9553 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41C824A61FB8E071000B9553 /* LICENSE.txt */; };
-		41E3A9C821593B340002BA05 /* BSKSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* BSKSpec.swift */; };
 		41E3A9C921593B340002BA05 /* BSKTransportCardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DA69BA211AE30700B06C40 /* BSKTransportCardSpec.swift */; };
 		41E3A9CA21593B340002BA05 /* BSKPaymentMethodSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41773D2021392A0B00784B0C /* BSKPaymentMethodSpec.swift */; };
 		41E3A9CB21593B340002BA05 /* BSKMockedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */; };
@@ -40,6 +40,7 @@
 /* Begin PBXFileReference section */
 		00FB909D1EEC7255C5649E9E /* BSK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BSK.podspec; path = ../BSK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3B1BDEB4CD98B440C72396AC /* Pods-BSK_UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_UnitTests/Pods-BSK_UnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		41310011215A5C0800F0F6F7 /* BSKAdapterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKAdapterSpec.swift; sourceTree = "<group>"; };
 		41773D2021392A0B00784B0C /* BSKPaymentMethodSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKPaymentMethodSpec.swift; sourceTree = "<group>"; };
 		41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ConfirmationRequestHTTPBody.txt; sourceTree = "<group>"; };
 		41C824A61FB8E071000B9553 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* BSKSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKSpec.swift; sourceTree = "<group>"; };
 		656CF85647CC446CBF0E8AF3 /* Pods-BSK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_Example/Pods-BSK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		784FD575752A4048386EBE19 /* Pods-BSK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_Tests/Pods-BSK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1FD54111C1D30DB552ABE00 /* Pods-BSK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_Tests/Pods-BSK_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				41BAE8521FC1F12700971380 /* Stub Data */,
-				607FACEB1AFB9204008FA782 /* BSKSpec.swift */,
+				41310011215A5C0800F0F6F7 /* BSKAdapterSpec.swift */,
 				41DA69BA211AE30700B06C40 /* BSKTransportCardSpec.swift */,
 				41773D2021392A0B00784B0C /* BSKPaymentMethodSpec.swift */,
 				41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */,
@@ -407,10 +407,10 @@
 			files = (
 				41F4345C215A3D9C00108B3C /* BSKPaymentTypeSpec.swift in Sources */,
 				41E3A9CA21593B340002BA05 /* BSKPaymentMethodSpec.swift in Sources */,
+				41310012215A5C0800F0F6F7 /* BSKAdapterSpec.swift in Sources */,
 				41E3A9CB21593B340002BA05 /* BSKMockedDelegate.swift in Sources */,
 				41E3A9C921593B340002BA05 /* BSKTransportCardSpec.swift in Sources */,
 				41F4345E215A4E2000108B3C /* String+Extensions.swift in Sources */,
-				41E3A9C821593B340002BA05 /* BSKSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
