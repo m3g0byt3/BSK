@@ -13,10 +13,6 @@
 		41E3A9C921593B340002BA05 /* BSKTransportCardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DA69BA211AE30700B06C40 /* BSKTransportCardSpec.swift */; };
 		41E3A9CA21593B340002BA05 /* BSKPaymentMethodSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41773D2021392A0B00784B0C /* BSKPaymentMethodSpec.swift */; };
 		41E3A9CB21593B340002BA05 /* BSKMockedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */; };
-		41E3A9CC21593C1F0002BA05 /* MaintenanceModeRawResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 41DA69C0211AE61700B06C40 /* MaintenanceModeRawResponse.xml */; };
-		41E3A9CD21593C1F0002BA05 /* WrongCardNumberRawResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 41DA69C1211AE61800B06C40 /* WrongCardNumberRawResponse.xml */; };
-		41E3A9CE21593C1F0002BA05 /* WrongSumRawResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 41DA69BF211AE61700B06C40 /* WrongSumRawResponse.xml */; };
-		41E3A9CF21593C1F0002BA05 /* ConfirmationRequestHTTPBody.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */; };
 		41F4345C215A3D9C00108B3C /* BSKPaymentTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4345B215A3D9C00108B3C /* BSKPaymentTypeSpec.swift */; };
 		41F4345E215A4E2000108B3C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4345D215A4E2000108B3C /* String+Extensions.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -42,12 +38,8 @@
 		3B1BDEB4CD98B440C72396AC /* Pods-BSK_UnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSK_UnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BSK_UnitTests/Pods-BSK_UnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		41310011215A5C0800F0F6F7 /* BSKAdapterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKAdapterSpec.swift; sourceTree = "<group>"; };
 		41773D2021392A0B00784B0C /* BSKPaymentMethodSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKPaymentMethodSpec.swift; sourceTree = "<group>"; };
-		41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ConfirmationRequestHTTPBody.txt; sourceTree = "<group>"; };
 		41C824A61FB8E071000B9553 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
 		41DA69BA211AE30700B06C40 /* BSKTransportCardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSKTransportCardSpec.swift; sourceTree = "<group>"; };
-		41DA69BF211AE61700B06C40 /* WrongSumRawResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WrongSumRawResponse.xml; sourceTree = "<group>"; };
-		41DA69C0211AE61700B06C40 /* MaintenanceModeRawResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MaintenanceModeRawResponse.xml; sourceTree = "<group>"; };
-		41DA69C1211AE61800B06C40 /* WrongCardNumberRawResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WrongCardNumberRawResponse.xml; sourceTree = "<group>"; };
 		41E325C81FBA0E2300E83992 /* BSKMockedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKMockedDelegate.swift; sourceTree = "<group>"; };
 		41E3A9BE21593B1F0002BA05 /* BSK_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSK_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E3A9C221593B1F0002BA05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,21 +83,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		41BAE8521FC1F12700971380 /* Stub Data */ = {
-			isa = PBXGroup;
-			children = (
-				41DA69C0211AE61700B06C40 /* MaintenanceModeRawResponse.xml */,
-				41DA69C1211AE61800B06C40 /* WrongCardNumberRawResponse.xml */,
-				41DA69BF211AE61700B06C40 /* WrongSumRawResponse.xml */,
-				41BAE8531FC1F13A00971380 /* ConfirmationRequestHTTPBody.txt */,
-			);
-			path = "Stub Data";
-			sourceTree = "<group>";
-		};
 		41E3A9BF21593B1F0002BA05 /* BSK_UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				41BAE8521FC1F12700971380 /* Stub Data */,
 				41310011215A5C0800F0F6F7 /* BSKAdapterSpec.swift */,
 				41DA69BA211AE30700B06C40 /* BSKTransportCardSpec.swift */,
 				41773D2021392A0B00784B0C /* BSKPaymentMethodSpec.swift */,
@@ -283,10 +263,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41E3A9CD21593C1F0002BA05 /* WrongCardNumberRawResponse.xml in Resources */,
-				41E3A9CF21593C1F0002BA05 /* ConfirmationRequestHTTPBody.txt in Resources */,
-				41E3A9CE21593C1F0002BA05 /* WrongSumRawResponse.xml in Resources */,
-				41E3A9CC21593C1F0002BA05 /* MaintenanceModeRawResponse.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
