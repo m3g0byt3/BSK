@@ -1,14 +1,31 @@
-# references:
+# References:
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
 
-osx_image: xcode7.3
-language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
+language: swift
+osx_image: xcode10
+podfile: Example/Podfile
+
+branches:
+  only:
+    - development
+
+env:
+  global:
+    - WORKSPACE="Example/BSK.xcworkspace"
+    - SCHEME="BSK-Example"
+    - SDK="iphonesimulator12.0"
+  matrix:
+    - DESTINATION="OS=9.3,name=iPhone 6s"
+    - DESTINATION="OS=10.3.1,name=iPhone 7"
+    - DESTINATION="OS=11.4,name=iPhone 8"
+    - DESTINATION="OS=12.0,name=iPhone X"
+
+before_install:
+  - gem install cocoapods
+  - pod install --project-directory=Example/
+
 script:
-- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/BSK.xcworkspace -scheme BSK-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+  - set -o pipefail
+  - xcodebuild clean test -enableCodeCoverage YES -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=NO | xcpretty --simple --color
+  - pod lib lint
