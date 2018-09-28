@@ -6,10 +6,6 @@ language: swift
 osx_image: xcode10
 podfile: Example/Podfile
 
-branches:
-  only:
-    - development
-
 env:
   global:
     - WORKSPACE="Example/BSK.xcworkspace"
