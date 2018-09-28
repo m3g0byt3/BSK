@@ -10,8 +10,9 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "9.3"
   spec.source        = { :git => "https://github.com/m3g0byt3/BSK.git", :tag => "#{spec.version}" }
   spec.source_files  = 'BSK/**/*.swift'
-  spec.resource_bundles = { 'BSKStubData' => ['BSK/**/*.{txt,xml,json}'] }
   spec.requires_arc  = true
   spec.dependency 'Moya'
- 
+
+  # Stub responses, currently not used
+  # spec.resource_bundles = { 'BSKStubData' => ['BSK/**/*.{txt,xml,json}'] } 
 end
