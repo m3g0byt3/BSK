@@ -4,6 +4,7 @@
 //
 //  Created by m3g0byt3 on 08/08/2018.
 //
+// swiftlint:disable implicitly_unwrapped_optional
 
 import Foundation
 import WebKit
@@ -41,7 +42,7 @@ class BSKWebViewHandler: NSObject, BSKWebViewHandlerProtocol, _BSKWebViewHandler
     }
 }
 
-// MARK: - BSKWebViewHandlerProtocol protocol conformance
+// MARK: - UIWebViewDelegate protocol conformance
 
 extension BSKWebViewHandler {
 
@@ -67,7 +68,7 @@ extension BSKWebViewHandler {
     }
 }
 
-// MARK: - UIWebViewDelegate protocol conformance
+// MARK: - WKNavigationDelegate protocol conformance
 
 extension BSKWebViewHandler {
 
